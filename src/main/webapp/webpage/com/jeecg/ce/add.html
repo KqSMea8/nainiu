@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)http://localhost:8180/jeecg/demo/jpDemoOrderMain.do?toAdd -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Jeecg-P3插件开发平台</title>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="./Jeecg-P3插件开发平台add_files/bootstrap.css" rel="stylesheet">
+    <link href="./Jeecg-P3插件开发平台add_files/style.css" rel="stylesheet">
+    <link href="./Jeecg-P3插件开发平台add_files/zTreeStyle.css" type="text/css" rel="stylesheet">
+	<link href="./Jeecg-P3插件开发平台add_files/kongjian.css" rel="stylesheet">
+	    <link rel="stylesheet" href="./Jeecg-P3插件开发平台add_files/font-awesome.css">
+	<style>
+		table tr td a.btn {
+            padding: 1px 6px;
+            font-size: 4px;
+            line-height: 1.5;
+            border-radius: 3px;
+		}
+		.chk input[type=checkbox] {
+			display:none;
+		}
+        .chk {
+          width: 16px;
+          height:16px;
+          position: relative;
+        }
+        .chk label { 
+          width: 16px;
+          height: 16px;
+          cursor: pointer;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: rgb(72, 167, 231);
+          -moz-border-radius: 4px;
+          -webkit-border-radius: 4px;
+          border-radius: 4px;
+        } 
+        .chk  label:after {
+          content: '';
+          width: 9px;
+          height: 5px;
+          position: absolute;
+          top: 5px;
+          left: 4px;
+          border: 3px solid #fff;
+          border-top: none;
+          border-right: none;
+          background: transparent;
+          filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+          opacity: 0;
+          -moz-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+          -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+        
+        .chk label:hover::after {
+        	 filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+        	 opacity: 0.5;
+        }
+        .chk input[type=checkbox]:checked + label:after {
+              filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+              opacity: 1;
+        }
+    </style>
+    
+    <script type="text/javascript" src="./Jeecg-P3插件开发平台add_files/iFrameResize.js"></script>
+	<script type="text/javascript" src="./Jeecg-P3插件开发平台add_files/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="./Jeecg-P3插件开发平台add_files/respond.min.js"></script>
+	<script type="text/javascript" src="./Jeecg-P3插件开发平台add_files/bootstrap.js"></script>
+	<script type="text/javascript" src="./Jeecg-P3插件开发平台add_files/common.js"></script>
+	<script type="text/javascript" src="./Jeecg-P3插件开发平台add_files/jquery.form.js"></script>
+	<script type="text/javascript" src="./Jeecg-P3插件开发平台add_files/scrollNav.js"></script>
+	<script type="text/javascript" src="./Jeecg-P3插件开发平台add_files/WdatePicker.js" language="javascript"></script><link href="./Jeecg-P3插件开发平台add_files/WdatePicker.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="./Jeecg-P3插件开发平台add_files/layer.js" language="javascript"></script><link rel="stylesheet" href="./Jeecg-P3插件开发平台add_files/layer.css" id="layui_layer_skinlayercss"><style type="text/css" media="screen">
+  .jumbotron {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .container .jumbotron {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  .jumbotron h1,
+  .jumbotron .h1 {
+    font-size: 63px;
+  }
+
+  .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .carousel-control .glyphicons-chevron-left,
+  .carousel-control .glyphicons-chevron-right,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    font-size: 30px;
+  }
+  .carousel-caption {
+    right: 20%;
+    left: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }</style><style type="text/css" media="all">
+  .lead {
+    font-size: 21px;
+  }
+
+  .dl-horizontal dt {
+    float: left;
+    width: 160px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dl-horizontal dd {
+    margin-left: 180px;
+  }
+  .dl-horizontal dd:before,
+  .dl-horizontal dd:after {
+    display: table;
+    content: " ";
+  }
+  .dl-horizontal dd:after {
+    clear: both;
+  }
+  .dl-horizontal dd:before,
+  .dl-horizontal dd:after {
+    display: table;
+    content: " ";
+  }
+  .dl-horizontal dd:after {
+    clear: both;
+  }
+
+  .container {
+    width: 750px;
+  }
+
+  .container {
+    width: 970px;
+  }
+
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-sm-11 {
+    width: 91.66666666666666%;
+  }
+  .col-sm-10 {
+    width: 83.33333333333334%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-8 {
+    width: 66.66666666666666%;
+  }
+  .col-sm-7 {
+    width: 58.333333333333336%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-5 {
+    width: 41.66666666666667%;
+  }
+  .col-sm-4 {
+    width: 33.33333333333333%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-2 {
+    width: 16.666666666666664%;
+  }
+  .col-sm-1 {
+    width: 8.333333333333332%;
+  }
+  .col-sm-pull-12 {
+    right: 100%;
+  }
+  .col-sm-pull-11 {
+    right: 91.66666666666666%;
+  }
+  .col-sm-pull-10 {
+    right: 83.33333333333334%;
+  }
+  .col-sm-pull-9 {
+    right: 75%;
+  }
+  .col-sm-pull-8 {
+    right: 66.66666666666666%;
+  }
+  .col-sm-pull-7 {
+    right: 58.333333333333336%;
+  }
+  .col-sm-pull-6 {
+    right: 50%;
+  }
+  .col-sm-pull-5 {
+    right: 41.66666666666667%;
+  }
+  .col-sm-pull-4 {
+    right: 33.33333333333333%;
+  }
+  .col-sm-pull-3 {
+    right: 25%;
+  }
+  .col-sm-pull-2 {
+    right: 16.666666666666664%;
+  }
+  .col-sm-pull-1 {
+    right: 8.333333333333332%;
+  }
+  .col-sm-pull-0 {
+    right: 0;
+  }
+  .col-sm-push-12 {
+    left: 100%;
+  }
+  .col-sm-push-11 {
+    left: 91.66666666666666%;
+  }
+  .col-sm-push-10 {
+    left: 83.33333333333334%;
+  }
+  .col-sm-push-9 {
+    left: 75%;
+  }
+  .col-sm-push-8 {
+    left: 66.66666666666666%;
+  }
+  .col-sm-push-7 {
+    left: 58.333333333333336%;
+  }
+  .col-sm-push-6 {
+    left: 50%;
+  }
+  .col-sm-push-5 {
+    left: 41.66666666666667%;
+  }
+  .col-sm-push-4 {
+    left: 33.33333333333333%;
+  }
+  .col-sm-push-3 {
+    left: 25%;
+  }
+  .col-sm-push-2 {
+    left: 16.666666666666664%;
+  }
+  .col-sm-push-1 {
+    left: 8.333333333333332%;
+  }
+  .col-sm-push-0 {
+    left: 0;
+  }
+  .col-sm-offset-12 {
+    margin-left: 100%;
+  }
+  .col-sm-offset-11 {
+    margin-left: 91.66666666666666%;
+  }
+  .col-sm-offset-10 {
+    margin-left: 83.33333333333334%;
+  }
+  .col-sm-offset-9 {
+    margin-left: 75%;
+  }
+  .col-sm-offset-8 {
+    margin-left: 66.66666666666666%;
+  }
+  .col-sm-offset-7 {
+    margin-left: 58.333333333333336%;
+  }
+  .col-sm-offset-6 {
+    margin-left: 50%;
+  }
+  .col-sm-offset-5 {
+    margin-left: 41.66666666666667%;
+  }
+  .col-sm-offset-4 {
+    margin-left: 33.33333333333333%;
+  }
+  .col-sm-offset-3 {
+    margin-left: 25%;
+  }
+  .col-sm-offset-2 {
+    margin-left: 16.666666666666664%;
+  }
+  .col-sm-offset-1 {
+    margin-left: 8.333333333333332%;
+  }
+  .col-sm-offset-0 {
+    margin-left: 0;
+  }
+
+  .col-md-1,
+  .col-md-2,
+  .col-md-3,
+  .col-md-4,
+  .col-md-5,
+  .col-md-6,
+  .col-md-7,
+  .col-md-8,
+  .col-md-9,
+  .col-md-10,
+  .col-md-11,
+  .col-md-12 {
+    float: left;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+  .col-md-11 {
+    width: 91.66666666666666%;
+  }
+  .col-md-10 {
+    width: 83.33333333333334%;
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-8 {
+    width: 66.66666666666666%;
+  }
+  .col-md-7 {
+    width: 58.333333333333336%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-5 {
+    width: 41.66666666666667%;
+  }
+  .col-md-4 {
+    width: 33.33333333333333%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-2 {
+    width: 16.666666666666664%;
+  }
+  .col-md-1 {
+    width: 8.333333333333332%;
+  }
+  .col-md-pull-12 {
+    right: 100%;
+  }
+  .col-md-pull-11 {
+    right: 91.66666666666666%;
+  }
+  .col-md-pull-10 {
+    right: 83.33333333333334%;
+  }
+  .col-md-pull-9 {
+    right: 75%;
+  }
+  .col-md-pull-8 {
+    right: 66.66666666666666%;
+  }
+  .col-md-pull-7 {
+    right: 58.333333333333336%;
+  }
+  .col-md-pull-6 {
+    right: 50%;
+  }
+  .col-md-pull-5 {
+    right: 41.66666666666667%;
+  }
+  .col-md-pull-4 {
+    right: 33.33333333333333%;
+  }
+  .col-md-pull-3 {
+    right: 25%;
+  }
+  .col-md-pull-2 {
+    right: 16.666666666666664%;
+  }
+  .col-md-pull-1 {
+    right: 8.333333333333332%;
+  }
+  .col-md-pull-0 {
+    right: 0;
+  }
+  .col-md-push-12 {
+    left: 100%;
+  }
+  .col-md-push-11 {
+    left: 91.66666666666666%;
+  }
+  .col-md-push-10 {
+    left: 83.33333333333334%;
+  }
+  .col-md-push-9 {
+    left: 75%;
+  }
+  .col-md-push-8 {
+    left: 66.66666666666666%;
+  }
+  .col-md-push-7 {
+    left: 58.333333333333336%;
+  }
+  .col-md-push-6 {
+    left: 50%;
+  }
+  .col-md-push-5 {
+    left: 41.66666666666667%;
+  }
+  .col-md-push-4 {
+    left: 33.33333333333333%;
+  }
+  .col-md-push-3 {
+    left: 25%;
+  }
+  .col-md-push-2 {
+    left: 16.666666666666664%;
+  }
+  .col-md-push-1 {
+    left: 8.333333333333332%;
+  }
+  .col-md-push-0 {
+    left: 0;
+  }
+  .col-md-offset-12 {
+    margin-left: 100%;
+  }
+  .col-md-offset-11 {
+    margin-left: 91.66666666666666%;
+  }
+  .col-md-offset-10 {
+    margin-left: 83.33333333333334%;
+  }
+  .col-md-offset-9 {
+    margin-left: 75%;
+  }
+  .col-md-offset-8 {
+    margin-left: 66.66666666666666%;
+  }
+  .col-md-offset-7 {
+    margin-left: 58.333333333333336%;
+  }
+  .col-md-offset-6 {
+    margin-left: 50%;
+  }
+  .col-md-offset-5 {
+    margin-left: 41.66666666666667%;
+  }
+  .col-md-offset-4 {
+    margin-left: 33.33333333333333%;
+  }
+  .col-md-offset-3 {
+    margin-left: 25%;
+  }
+  .col-md-offset-2 {
+    margin-left: 16.666666666666664%;
+  }
+  .col-md-offset-1 {
+    margin-left: 8.333333333333332%;
+  }
+  .col-md-offset-0 {
+    margin-left: 0;
+  }
+
+  .form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 10px;
+    vertical-align: middle;
+  }
+  .form-inline .form-control {
+    display: inline-block;
+  }
+  .form-inline select.form-control {
+    width: ;
+  }
+  .form-inline .radio,
+  .form-inline .checkbox {
+    display: inline-block;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .form-inline .radio input[type="radio"],
+  .form-inline .checkbox input[type="checkbox"] {
+    float: none;
+    margin-left: 0;
+  }
+
+  .form-horizontal .control-label {
+    text-align: right;
+  }
+
+  .navbar-right .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+
+  .nav-tabs.nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+  .nav-tabs.nav-justified > li > a {
+    margin-bottom: 0;
+  }
+
+  .nav-tabs.nav-justified > li > a {
+    border-bottom: 1px solid #dddddd;
+    border-radius: 4px 4px 0 0;
+  }
+  .nav-tabs.nav-justified > .active > a,
+  .nav-tabs.nav-justified > .active > a:hover,
+  .nav-tabs.nav-justified > .active > a:focus {
+    border-bottom-color: #ffffff;
+  }
+
+  .nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+  .nav-justified > li > a {
+    margin-bottom: 0;
+  }
+
+  .nav-tabs-justified > li > a {
+    border-bottom: 1px solid #dddddd;
+    border-radius: 4px 4px 0 0;
+  }
+  .nav-tabs-justified > .active > a,
+  .nav-tabs-justified > .active > a:hover,
+  .nav-tabs-justified > .active > a:focus {
+    border-bottom-color: #ffffff;
+  }
+
+  .navbar {
+    border-radius: 4px;
+  }
+
+  .navbar-header {
+    float: left;
+  }
+
+  .navbar-collapse {
+    width: auto;
+    border-top: 0;
+    box-shadow: none;
+  }
+  .navbar-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+  .navbar-collapse.in {
+    overflow-y: visible;
+  }
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-static-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .container > .navbar-header,
+  .container > .navbar-collapse {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .navbar-static-top {
+    border-radius: 0;
+  }
+
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    border-radius: 0;
+  }
+
+  .navbar > .container .navbar-brand {
+    margin-left: -15px;
+  }
+
+  .navbar-toggle {
+    display: none;
+  }
+
+  .navbar-nav {
+    float: left;
+    margin: 0;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .navbar-nav.navbar-right:last-child {
+    margin-right: -15px;
+  }
+
+  .navbar-left {
+    float: left !important;
+  }
+  .navbar-right {
+    float: right !important;
+  }
+
+  .navbar-form .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  .navbar-form .form-control {
+    display: inline-block;
+  }
+  .navbar-form select.form-control {
+    width: auto;
+  }
+  .navbar-form .radio,
+  .navbar-form .checkbox {
+    display: inline-block;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar-form .radio input[type="radio"],
+  .navbar-form .checkbox input[type="checkbox"] {
+    float: none;
+    margin-left: 0;
+  }
+
+  .navbar-form {
+    width: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    border: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .navbar-form.navbar-right:last-child {
+    margin-right: -15px;
+  }
+
+  .navbar-text {
+    float: left;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+  .navbar-text.navbar-right:last-child {
+    margin-right: 0;
+  }
+
+  .visible-xs.visible-md {
+    display: block !important;
+  }
+  table.visible-xs.visible-md {
+    display: table;
+  }
+  tr.visible-xs.visible-md {
+    display: table-row !important;
+  }
+  th.visible-xs.visible-md,
+  td.visible-xs.visible-md {
+    display: table-cell !important;
+  }
+
+  .visible-sm.visible-md {
+    display: block !important;
+  }
+  table.visible-sm.visible-md {
+    display: table;
+  }
+  tr.visible-sm.visible-md {
+    display: table-row !important;
+  }
+  th.visible-sm.visible-md,
+  td.visible-sm.visible-md {
+    display: table-cell !important;
+  }
+
+  .visible-md {
+    display: block !important;
+  }
+  table.visible-md {
+    display: table;
+  }
+  tr.visible-md {
+    display: table-row !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: table-cell !important;
+  }
+
+  .visible-lg.visible-md {
+    display: block !important;
+  }
+  table.visible-lg.visible-md {
+    display: table;
+  }
+  tr.visible-lg.visible-md {
+    display: table-row !important;
+  }
+  th.visible-lg.visible-md,
+  td.visible-lg.visible-md {
+    display: table-cell !important;
+  }
+
+  .hidden-xs.hidden-md,
+  tr.hidden-xs.hidden-md,
+  th.hidden-xs.hidden-md,
+  td.hidden-xs.hidden-md {
+    display: none !important;
+  }
+
+  .hidden-sm.hidden-md,
+  tr.hidden-sm.hidden-md,
+  th.hidden-sm.hidden-md,
+  td.hidden-sm.hidden-md {
+    display: none !important;
+  }
+
+  .hidden-md,
+  tr.hidden-md,
+  th.hidden-md,
+  td.hidden-md {
+    display: none !important;
+  }
+
+  .hidden-lg.hidden-md,
+  tr.hidden-lg.hidden-md,
+  th.hidden-lg.hidden-md,
+  td.hidden-lg.hidden-md {
+    display: none !important;
+  }</style><style type="text/css" media="print">
+  * {
+    color: #000 !important;
+    text-shadow: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page  {
+    margin: 2cm .5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  select {
+    background: #fff !important;
+  }
+  .navbar {
+    display: none;
+  }
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+  .label {
+    border: 1px solid #000;
+  }
+  .table {
+    border-collapse: collapse !important;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+
+  .visible-print {
+    display: block !important;
+  }
+  table.visible-print {
+    display: table;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+  .hidden-print,
+  tr.hidden-print,
+  th.hidden-print,
+  td.hidden-print {
+    display: none !important;
+  }</style>
+	
+</head>
+<body style="overflow:scroll;overflow-x:hidden">
+	<div class="container bs-docs-container" style="width:100%;">
+		<div class="row">
+			<div class="panel panel-default">
+				<div class="panel-heading">新增</div>
+				<div class="panel-body">
+					<form class="form-horizontal" role="form" id="dailogForm" action="http://localhost:8180/jeecg/demo/jpDemoOrderMain.do?doAdd" method="POST">
+						<input type="hidden" id="btn_sub" class="btn_sub">
+									<div class="form-group mno">
+										<label for="inputEmail3" class="col-sm-2 control-label" style="text-align:center;">订单号</label>
+										<div class="col-sm-4">
+											<input type="text" value="" maxlength="12" ajaxurl="/jeecg/demo/jpDemoOrderMain.do?checkOrderCode" name="goOrderCode" id="goOrderCode" class="form-control" datatype="*">
+										<span class="Validform_checktip"></span></div>
+										<label for="inputEmail3" class="col-sm-2 control-label" style="text-align:center;">订单类型</label>
+										<div class="col-sm-4">
+                                            <select name="goderType" id="goderType" class="form-control">
+                                                <option value="">--请选择--</option>
+												<option value="1">普通订单</option>
+												<option value="2">优质订单</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group mno">
+										<label for="inputEmail3" class="col-sm-2 control-label" style="text-align:center;">顾客类型</label>
+										<div class="col-sm-4">
+											<select name="usertype" id="usertype" class="form-control">
+                                                <option value="">--请选择--</option>
+												<option value="1">普通客户</option>
+												<option value="2">签约客户</option>
+											</select>
+										</div>
+										<label for="inputEmail3" class="col-sm-2 control-label" style="text-align:center;">联系人</label>
+										<div class="col-sm-4">
+											<input type="text" value="" name="goContactName" id="goContactName" maxlength="16" class="form-control" datatype="*">
+										<span class="Validform_checktip"></span></div>
+									</div>
+									<div class="form-group mno">
+										<label for="inputEmail3" class="col-sm-2 control-label" style="text-align:center;">手机号码</label>
+										<div class="col-sm-4">
+											<input type="text" value="" name="goTelphone" id="goTelphone" class="form-control" datatype="m">
+										<span class="Validform_checktip"></span></div>
+										<label for="inputEmail3" class="col-sm-2 control-label" style="text-align:center;">订单人数</label>
+										<div class="col-sm-4">
+											<input type="text" value="" name="goOrderCount" id="goOrderCount" maxlength="11" class="form-control" datatype="n">
+										<span class="Validform_checktip"></span></div>
+									</div>
+									<div class="form-group mno">
+										<label for="inputEmail3" class="col-sm-2 control-label" style="text-align:center;">总价(不含返款)</label>
+										<div class="col-sm-4">
+											<input type="text" value="" name="goAllPrice" id="goAllPrice" maxlength="8" class="form-control" datatype="/^-?[1-9]+(\.\d+)?$|^-?0(\.\d+)?$|^-?[1-9]+[0-9]*(\.\d+)?$/">
+										<span class="Validform_checktip"></span></div>
+										<label for="inputEmail3" class="col-sm-2 control-label" style="text-align:center;">返款</label>
+										<div class="col-sm-4">
+											<input type="text" value="" name="goReturnPrice" maxlength="8" id="goReturnPrice" class="form-control" datatype="/^-?[1-9]+(\.\d+)?$|^-?0(\.\d+)?$|^-?[1-9]+[0-9]*(\.\d+)?$/">
+										<span class="Validform_checktip"></span></div>
+									</div>
+									<div class="form-group mno">
+										<label for="inputEmail3" class="col-sm-2 control-label" style="text-align:center;">备注</label>
+										<div class="col-sm-4">
+											<input type="text" value="" name="goContent" id="goContent" class="form-control" maxlength="66" datatype="*">
+										<span class="Validform_checktip"></span></div>
+									</div>
+									
+									<div class="form-group mno">
+										<ul id="tab_menu" class="nav nav-tabs">
+											<li class="active">
+												<a href="http://localhost:8180/jeecg/demo/jpDemoOrderMain.do?toAdd#jpDemoOrderProduct" data-toggle="tab">
+													产品明细
+												</a>
+                                            </li>
+											<li>
+												<a href="http://localhost:8180/jeecg/demo/jpDemoOrderMain.do?toAdd#jpDemoOrderCustom" data-toggle="tab">
+													客户明细
+												</a>
+                                            </li>
+                                        </ul>
+										<!-- //update-begin--Author:zhangjiaqiang  Date:20160906 for：【插件demo】一对多，明细行间距太大 -->
+										<div id="tab_menu_content" class="tab-content">
+											<div class="tab-pane fade in active" id="jpDemoOrderProduct">
+												<button type="button" id="jpDemoOrderProduct_add" class="btn btn-primary">添加</button>
+												<button type="button" id="jpDemoOrderProduct_del" class="btn btn-danger">删除</button>
+                                                <table class="table table-striped" id="jpDemoOrderProduct_table" style="margin-top:15px;">
+													<thead>
+														<tr>
+                                                            <th>ID</th>
+                                                            <th>产品名称</th>
+    														<th>个数</th>
+    														<th>服务类型</th>
+    														<th>单价</th>
+    														<th>小计</th>
+    														<th>备注</th>
+														</tr>
+                                                    </thead>
+													<tbody>
+                                                    <tr>
+								<td>
+									<input type="checkbox" name="jpDemoOrderProductEntities[0].idCheck" id="jpDemoOrderProductEntities0_idCheck" class="form-control">
+                                </td>
+								<td>
+									<input type="text" name="jpDemoOrderProductEntities[0].gopProductName" maxlength="33" id="jpDemoOrderProductEntities[0].gopProductName" class="form-control" datatype="*">
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderProductEntities[0].gopCount" maxlength="11" id="jpDemoOrderProductEntities[0].gopCount" class="form-control" datatype="*">
+								</td>
+								<td>
+									<select name="jpDemoOrderProductEntities[0].gopProductType" id="jpDemoOrderProductEntities[0].gopProductType" class="form-control">
+										<option value="">--请选择--</option>
+										<option value="1">普通服务</option>
+										<option value="2">特殊服务</option>
+                                    </select>
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderProductEntities[0].gopOnePrice" maxlength="8" id="jpDemoOrderProductEntities[0].gopOnePrice" class="form-control" datatype="/^-?[1-9]+(\.\d+)?$|^-?#index#(\.\d+)?$|^-?[1-9]+[#index#-9]*(\.\d+)?$/">
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderProductEntities[0].gopSumPrice" maxlength="8" id="jpDemoOrderProductEntities[0].gopSumPrice" class="form-control" datatype="/^-?[1-9]+(\.\d+)?$|^-?#index#(\.\d+)?$|^-?[1-9]+[#index#-9]*(\.\d+)?$/">
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderProductEntities[0].gopContent" maxlength="66" id="jpDemoOrderProductEntities[0].gopContent" class="form-control" datatype="*">
+								</td>
+                            </tr></tbody>
+												</table>
+											</div>
+                                            <div class="tab-pane fade" id="jpDemoOrderCustom">
+												<button type="button" id="jpDemoOrderCustom_add" class="btn btn-primary">添加</button>
+												<button type="button" id="jpDemoOrderCustom_del" class="btn btn-danger">删除</button>
+												<table class="table table-striped" id="jpDemoOrderCustom_table" style="margin-top:15px;">
+													<thead>
+														<tr>
+                                                            <th>ID</th>
+                                                            <th>姓名</th>
+    														<th>性别</th>
+    														<th>身份证号</th>
+    														<th>护照号</th>
+    														<th>业务</th>
+    														<th>备注</th>
+														</tr>
+                                                    </thead>
+													<tbody>
+                                                    <tr>
+								<td>
+									<input type="checkbox" name="jpDemoOrderCustomEntities[0].idCheck" id="jpDemoOrderCustomEntities0_idCheck" class="form-control">
+                                </td>
+								<td>
+									<input type="text" name="jpDemoOrderCustomEntities[0].gocCusName" maxlength="16" id="jpDemoOrderCustomEntities[0].gocCusName" class="form-control" datatype="*">
+								</td>
+								<td>
+									<select name="jpDemoOrderCustomEntities[0].gocSex" id="jpDemoOrderCustomEntities[0].gocSex" class="form-control">
+										<option value="">--请选择--</option>
+										<option value="1">男</option>
+										<option value="2">女</option>
+                                     </select>
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderCustomEntities[0].gocIdcard" maxlength="18" id="jpDemoOrderCustomEntities[0].gocIdcard" errormsg="请填写正确身份证号码！" class="form-control" datatype="*">
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderCustomEntities[0].gocPassportCode" maxlength="10" id="jpDemoOrderCustomEntities[0].gocPassportCode" class="form-control" datatype="*">
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderCustomEntities[0].gocBussContent" maxlength="33" id="jpDemoOrderCustomEntities[0].gocBussContent" class="form-control" datatype="*">
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderCustomEntities[0].gocContent" maxlength="66" id="jpDemoOrderCustomEntities[0].gocContent" class="form-control" datatype="*">
+								</td>
+                             </tr></tbody>
+												</table>
+											</div>
+										</div>
+										
+									</div>
+									
+						<div class="form-group mno">
+							<div class="col-sm-offset-1 col-sm-6">
+								<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl(&#39;/jeecg/demo/jpDemoOrderMain.do?list&#39;)">返回</button>
+								<button type="button" class="btn btn-primary" id="formSubmit">提交</button>
+							 </div>
+						</div>
+					</form>
+					
+					<!-- 客户明细模板 -->
+					<table style="display:none;">
+						<tbody id="add_jpDemoOrderCustom_template">
+							<tr>
+								<td>
+									<input type="checkbox" name="jpDemoOrderCustomEntities[#index#].idCheck" id="jpDemoOrderCustomEntities#index#_idCheck" class="form-control">
+                                </td>
+								<td>
+									<input type="text" name="jpDemoOrderCustomEntities[#index#].gocCusName" maxlength="16" id="jpDemoOrderCustomEntities[#index#].gocCusName" class="form-control" datatype="*">
+								</td>
+								<td>
+									<select name="jpDemoOrderCustomEntities[#index#].gocSex" id="jpDemoOrderCustomEntities[#index#].gocSex" class="form-control">
+										<option value="">--请选择--</option>
+										<option value="1">男</option>
+										<option value="2">女</option>
+                                     </select>
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderCustomEntities[#index#].gocIdcard" maxlength="18" id="jpDemoOrderCustomEntities[#index#].gocIdcard" errormsg="请填写正确身份证号码！" class="form-control" datatype="*">
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderCustomEntities[#index#].gocPassportCode" maxlength="10" id="jpDemoOrderCustomEntities[#index#].gocPassportCode" class="form-control" datatype="*">
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderCustomEntities[#index#].gocBussContent" maxlength="33" id="jpDemoOrderCustomEntities[#index#].gocBussContent" class="form-control" datatype="*">
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderCustomEntities[#index#].gocContent" maxlength="66" id="jpDemoOrderCustomEntities[#index#].gocContent" class="form-control" datatype="*">
+								</td>
+                             </tr>
+                        </tbody>
+                    </table>
+					<!--产品明细模板 -->
+					<table style="display:none;">
+						<tbody id="add_jpDemoOrderProduct_template">
+							<tr>
+								<td>
+									<input type="checkbox" name="jpDemoOrderProductEntities[#index#].idCheck" id="jpDemoOrderProductEntities#index#_idCheck" class="form-control">
+                                </td>
+								<td>
+									<input type="text" name="jpDemoOrderProductEntities[#index#].gopProductName" maxlength="33" id="jpDemoOrderProductEntities[#index#].gopProductName" class="form-control" datatype="*">
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderProductEntities[#index#].gopCount" maxlength="11" id="jpDemoOrderProductEntities[#index#].gopCount" class="form-control" datatype="*">
+								</td>
+								<td>
+									<select name="jpDemoOrderProductEntities[#index#].gopProductType" id="jpDemoOrderProductEntities[#index#].gopProductType" class="form-control">
+										<option value="">--请选择--</option>
+										<option value="1">普通服务</option>
+										<option value="2">特殊服务</option>
+                                    </select>
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderProductEntities[#index#].gopOnePrice" maxlength="8" id="jpDemoOrderProductEntities[#index#].gopOnePrice" class="form-control" datatype="/^-?[1-9]+(\.\d+)?$|^-?#index#(\.\d+)?$|^-?[1-9]+[#index#-9]*(\.\d+)?$/">
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderProductEntities[#index#].gopSumPrice" maxlength="8" id="jpDemoOrderProductEntities[#index#].gopSumPrice" class="form-control" datatype="/^-?[1-9]+(\.\d+)?$|^-?#index#(\.\d+)?$|^-?[1-9]+[#index#-9]*(\.\d+)?$/">
+								</td>
+								<td>
+									<input type="text" name="jpDemoOrderProductEntities[#index#].gopContent" maxlength="66" id="jpDemoOrderProductEntities[#index#].gopContent" class="form-control" datatype="*">
+								</td>
+                            </tr>
+                        </tbody>
+                    </table>
+					<!-- //update-end--Author:zhangjiaqiang  Date:20160906 for：【插件demo】一对多，明细行间距太大 -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<script type="text/javascript" src="./Jeecg-P3插件开发平台add_files/Validform_v5.3.2.js"></script> 
+<script type="text/javascript" src="./Jeecg-P3插件开发平台add_files/forminit.p3.js"></script> 
+<script type="text/javascript" src="./Jeecg-P3插件开发平台add_files/jpDemoOrderMain-add.js"></script><div id="Validform_msg"><div class="Validform_title">提示信息<a class="Validform_close" href="javascript:void(0);">χ</a></div><div class="Validform_info"></div><div class="iframe"><iframe frameborder="0" scrolling="no" height="100%" width="100%" src="./Jeecg-P3插件开发平台add_files/saved_resource.html"></iframe></div></div>
+<!-- //update-begin--Author:zhangjiaqiang  Date:20160906 for：【插件demo】一对多，明细行间距太大 -->
+<script>
+jQuery(function(){
+	var jpDemoOrderCustomTr = $("#add_jpDemoOrderCustom_template tr").clone();
+	$("#jpDemoOrderCustom_table tbody").append(jpDemoOrderCustomTr);
+	resetTrNum('jpDemoOrderCustom_table');
+	
+	var jpDemoOrderProductTr = $("#add_jpDemoOrderProduct_template tr").clone();
+	$("#jpDemoOrderProduct_table tbody").append(jpDemoOrderProductTr);
+	resetTrNum('jpDemoOrderProduct_table');
+});
+</script>
+<!-- //update-end--Author:zhangjiaqiang  Date:20160906 for：【插件demo】一对多，明细行间距太大 -->
+
+</body></html>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.jeecgframework:postgresql:9.1-903.jdbc4">
+    <CLASSES>
+      <root url="jar://D:/ideaworkspace/dppcode/maven/org/jeecgframework/postgresql/9.1-903.jdbc4/postgresql-9.1-903.jdbc4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/ideaworkspace/dppcode/maven/org/jeecgframework/postgresql/9.1-903.jdbc4/postgresql-9.1-903.jdbc4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/ideaworkspace/dppcode/maven/org/jeecgframework/postgresql/9.1-903.jdbc4/postgresql-9.1-903.jdbc4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

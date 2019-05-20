@@ -1,0 +1,99 @@
+@charset "utf-8";
+*{margin:0px;padding:0px;}
+.login{}
+.login .login-head{width:960px;margin:20px auto;height: 70px;}
+.login .login-head .login-head-a{text-align: center;float: left;}
+.login .login-head .login-head-a img{}
+.login .login-head .login-head-a p{font-size: 20px;margin: 0;}
+.login .login-head .login-head-b{border-left: 1px solid #666666;float: left;height: 75px;line-height: 75px;margin-left: 20px;padding-left: 30px;width: 150px;font-size: 25px;}
+.login .login-con{text-align: center;background:url(../img/bg.jpg) no-repeat;height:600px;}
+.login .login-con .login-a{background: url(../img/pay-bg-3.png)no-repeat;width:1000px;margin: 0 auto;text-align: left;padding-top: 0px;min-height: 450px;}
+.login .login-con .login-a form{}
+.login .login-con .login-a .login-b{float: right;width: 344px;height: 387px;border: solid 2px #e6e5e5;margin-right: 60px;margin-top: 20px;background: #fff;}
+.login .login-con .login-a .login-b .login-b-a {
+	height: 46px;
+	line-height: 46px;
+	font-size: 16px;
+	font-weight: bold;
+	padding-left: 15px;
+	border-bottom: 1px solid #eee;
+	margin: 4px 15px;
+	color: #ff7f00;
+}
+.login .login-con .login-a .login-b .login-b-b {
+	padding-top: 20px;
+	height: 255px;
+	padding-left: 32px;
+}
+.login .login-con .login-a .login-b .login-b-b ul li{height: 65px;_height: 60px;list-style-type: none;font-family: "微软雅黑","宋体",Arial;font-size: 14px;}
+.login .login-con .login-a .login-b .login-b-b ul li label{display: inline-block;font-size: 16px;color: #666666;}
+.login .login-con .login-a .login-b .login-b-b ul li input{width: 180px;color: rgb(153, 153, 153);height: 32px;line-height: 32px;border: solid 1px #d3d3d3;font-size: 14px;}
+.login .login-con .login-a .login-b .login-b-b ul li h1{font-weight: normal;color: #ff0000;background: url(../img/icon.png)no-repeat 95px -28px;font-size: 12px;padding-left: 120px;padding-top: 6px;margin: 3px 0px 0px -30px;}
+.login .login-con .login-a .login-b .login-b-b ul li #checkCode{height: 32px;line-height: 32px;width: 60px;}
+.login .login-con .login-a .login-b .login-b-b ul li img{vertical-align: middle;width: 76px;height: 33px;}
+.login .login-con .login-a .login-b .login-b-b ul li a{color: #447bd6;font-family: "微软雅黑","宋体",Arial;font-size: 12px;}
+.login .login-con .login-a .login-b .login-b-b ul .login-x{padding-top: 0px;height: 65px;}
+.login .login-con .login-a .login-b .login-b-b ul .login-x .login-x-a{width: 100px;height: 50px;float: left;}
+.login .login-con .login-a .login-b .login-b-b ul .login-x .login-x-a .x{background-position: right -208px;background-image: url(../img/btn-type2.png);background-repeat: no-repeat;height: 37px;float: left;width: 3px;}
+.login .login-con .login-a .login-b .login-b-b ul .login-x .login-x-a input{width:254px;float: left;border: none;background-position: 0 -120px;background-image: url(../img/btn-type2.png);background-repeat: no-repeat;height: 37px;line-height: 37px;color: #fff;font-size: 14px;font-weight: bold;
+}
+.login .login-con .login-a .login-b .login-b-b ul .login-x .login-x-b{}
+.login .login-con .login-a .login-b .login-b-c{text-align: center;padding-top: 10px;border-top: solid 1px #f0f0f0;}
+.login .login-con .login-a .login-b .login-b-c a{color: #447bd6;font-family: "微软雅黑","宋体",Arial;font-size: 12px;}
+.login .login-con .login-a .login-b .login-b-c a:hover{color: #f3ab3a;}
+.login .login-foot{ text-align: center;font-size: 14px;color: #666666;margin-top: 50px;}
+
+.code{      
+background-image:url(w1.jpg);      
+font-family:Arial;      
+font-style:italic;      
+color:Red;      
+border:0;      
+padding:2px 3px;      
+letter-spacing:3px;      
+font-weight:bolder;      
+}  
+#input1{width: 50px;}   
+
+.form label, .form input, .form select, .form textarea, .form button, .form .label{float:left;font-size:12px;}
+.fl{float:left;}.fr{float:right;}.fn{float:none;}
+.hide{display:none;}.invisible{visibility:hidden;}.overflow{overflow:hidden;}
+.clear{display:block;clear:both;height:0;overflow:hidden;}
+body{font:12px/180% Arial, Helvetica, sans-serif,"宋体";}
+/* yellow_button */
+.yellow_button{background:url(../img/yellow_button.png);border:none;cursor:pointer;height:36px;line-height:36px; overflow:hidden; display:inline-block; text-align:center; font-size:14px; font-weight:800; color:#fff;background-position:0 0;width:139px;}
+#registsubmit.disabled{background-position:0 -36px;cursor:default!important;}
+.red{color:#ff0000;font-family:"宋体";font-weight:normal;}
+/* formbox */
+#formbox{padding:20px;border:solid 1px #D1D1D1;margin:20px auto;width:880px;padding-bottom: 100px;}
+#formbox h3{font-size:16px;height:32px;color:#fb8d2e;font-weight:800;border-bottom:solid 1px #D1D1D1;margin:0 0 20px 0;padding:0 10px;}
+#formbox .item{padding-top:5px;height:50px;overflow:hidden;line-height:26px;}
+#formbox .item a:link,#formbox .item a:visited{text-decoration:underline;}
+#formbox .label{width:300px;text-align:right;font-size:14px;}
+#formbox .span-150{width:150px;}
+#formbox .text{width:240px;height:16px;padding:4px 3px;border:1px solid #bbb;font-size:14px;font-family:arial,"宋体";}
+#formbox .text-1{width:100px;}
+#formbox .blank{width:16px;height:16px;margin:2px 5px 0;}
+#formbox .img img{height:26px;margin:0 5px;}
+#formbox .succeed{background:url(images/pwdstrength.gif) no-repeat -105px 0;}
+#formbox .yellow_button{font-size:14px;font-weight:bold;color:#fff;border:none;cursor:pointer;}
+#formbox .highlight1{border:1px solid #EFA100;outline:2px solid #FFDC97;*border:2px solid #ffcc66;*padding:3px 2px;}
+#formbox .highlight2{border:1px solid #f00;outline:1px solid #FFC1C1;color:#f00;}
+#formbox .pwdbg{background:#FFF8EB;}
+#formbox .focus{color:#999;line-height:22px;*line-height:20px;}
+#formbox .null,#formbox .error{color:red;line-height:22px;*line-height:20px;}
+#formbox .checkbox{margin-top:6px;*margin-top:2px;}
+#formbox #referrer{color:#999;font-size:12px;}
+#formbox #protocol{margin:0px 5px 0 0;display:inline;}
+#pwdstrength{color:#999;line-height:22px;padding-right:10px;}
+#pwdstrength b{float:left;width:104px;height:13px;overflow:hidden;margin-top:5px;*margin-top:3px;}
+.strengthA b{background:url(images/pwdstrength.gif) no-repeat 0 0;}
+.strengthB b{background:url(images/pwdstrength.gif) no-repeat 0 -13px;}
+.strengthC b{background:url(images/pwdstrength.gif) no-repeat 0 -26px;}
+.get_code {
+	height: 26px;
+	width: 110px;
+	margin-left: 10px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+}
